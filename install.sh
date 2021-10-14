@@ -1,3 +1,4 @@
+# installing all dependency from npm
 npm i restify --save
 npm i @types/restify --save-dev
 npm install mongoose
