@@ -9,6 +9,9 @@ server
     console.log(
       `Server it's running on port: ${server.application.address().port}`
     );
+     console.log(
+      `Server it's running on: ${server.application.address().port}`
+    );
     console.log('====================================');
   })
   .catch(error => {
