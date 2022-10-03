@@ -52,7 +52,7 @@ export class Server {
     });
   }
 
-  bootstrap(routers: restify.Router[] = []): Promise<Server> {
+  bootstrap(): Promise<Server> {
     return this.initializeDb().then(() =>
       this.initServerConfiguration().then(() => this)
     );

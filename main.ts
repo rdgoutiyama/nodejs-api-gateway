@@ -3,7 +3,7 @@ import { Server } from './src/server/server';
 const server = new Server();
 
 server
-  .bootstrap([])
+  .bootstrap()
   .then(server => {
     console.log('====================================');
     console.log(
