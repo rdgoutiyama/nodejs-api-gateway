@@ -1,26 +1,8 @@
+// @ts-ignore
 import * as mongoose from 'mongoose';
-import { ExtensionModel } from 'oauth2-server';
 import { Token } from '../token/token.model';
 import { User } from '../user/user.model';
-
-export interface Client extends mongoose.Document {
-  id: String;
-  clientId: String;
-  clientSecret: String;
-  grants: [String];
-  redirectUris: [String];
-}
-
-export interface ClientModel extends mongoose.Model<Client> {
-  getClient(clientId, clientSecret, callback): Promise<any>;
-  getAccessToken(token, callback): Promise<any>;
-  getClient(clientId, clientSecret, callback): any;
-  saveToken(token, client, user, callback): Promise<any>;
-  getUser(username, password, callback): Promise<any>;
-  getUserFromClient(client, callback): Promise<any>;
-  getRefreshToken(refreshToken, callback): Promise<any>;
-  revokeToken(token, callback): Promise<any>;
-}
+import { IClientModel, IClient} from "./clinet.interface";
 
 export const clientSchema = new mongoose.Schema({
   id: String,
@@ -186,7 +168,7 @@ clientSchema.statics.revokeToken = function(token, callback) {
   );
 };
 
-export const Client = mongoose.model<Client, ClientModel>(
+export const Client = mongoose.model<IClient, IClientModel>(
   'Client',
   clientSchema
 );
